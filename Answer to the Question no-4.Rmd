@@ -1,0 +1,47 @@
+---
+title: "Answer to the Question no-4 (Mid-2)"
+author: "Al Mamun"
+date: "12/11/2020"
+output: html_document
+---
+#Step-1: Import the data
+```{r}
+rm(list = ls())
+getwd()
+setwd("C:/Users/AL MAMUN/Desktop/Mid-2 (ast 504)/R/")
+getwd
+data<-read.csv("Q-4.csv")
+data
+str(data)
+```
+
+
+
+#Step-2:ANOVA
+```{r}
+anova=aov(Observations~Method,data = data)
+anova
+summary(anova)
+```
+
+
+# Step-3: leveneTest
+```{r}
+#install.packages("car")
+#library(car)
+#install.packages("dplyr")
+#library(dplyr)
+
+#leveneTest(data$Observation, data$Method)
+#library(car)
+#install.packages("rlang")
+#library(rlang)
+#install.packages("reshape2")
+#library(reshape2)
+install.packages("reshape2")
+library(reshape2)
+library(car)
+leveneTest( Observationss~Method, data = data, location="median" )
+
+
+```
